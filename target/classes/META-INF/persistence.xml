@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="LPWSD.0PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.cesjf.lpwsd.model.TbEmprestimo</class>
+    <class>br.cesjf.lpwsd.model.TbEditora</class>
+    <class>br.cesjf.lpwsd.model.TbAutores</class>
+    <class>br.cesjf.lpwsd.model.TbUsuario</class>
+    <class>br.cesjf.lpwsd.model.TbExemplar</class>
+    <class>br.cesjf.lpwsd.model.TbAssunto</class>
+    <class>br.cesjf.lpwsd.model.TbLivro</class>
+    <class>br.cesjf.lpwsd.model.Prova</class>
+    <class>br.cesjf.lpwsd.model.TipoUsuario</class>
+    <class>br.cesjf.lpwsd.model.Resposta</class>
+    <class>br.cesjf.lpwsd.model.Questao</class>
+    <class>br.cesjf.lpwsd.model.TipoQuestao</class>
+    <class>br.cesjf.lpwsd.model.Curso</class>
+    <class>br.cesjf.lpwsd.model.UsuarioHasQuestao</class>
+    <class>br.cesjf.lpwsd.model.Usuario</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/LPWSD?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>

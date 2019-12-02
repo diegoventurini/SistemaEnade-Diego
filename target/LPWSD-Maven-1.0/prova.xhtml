@@ -1,0 +1,144 @@
+<ui:composition template="/WEB-INF/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        
+        
+       <style type="text/css">
+                .label {
+                    width:20%;
+                    padding:4px;
+                }
+
+                .value {
+                    width:80%;
+                    padding:4px;
+                }
+
+                .grid {
+                    width:100%;
+                }
+
+                .error {
+                    color: red;
+                }
+
+                .outputLabel {
+                    font-weight: bold;
+                }
+
+                .grid {
+                    width:33%;
+                    padding:4px;
+                }
+</style>
+ 
+ 
+<h:form>
+         
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+       
+       
+        <p:tab id="prova" title="Prova">
+            <p:panel header="Detalhes da Prova">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    
+                    <h:outputText value="Ano da prova" />                    
+                      <p:selectOneMenu id="prova-dash" value="#{selectOneMenuView.console}" style="width:15%">
+                        <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="2019" itemValue="1" />
+                        <f:selectItem itemLabel="2018" itemValue="2" />
+                        <f:selectItem itemLabel="2017" itemValue="3" />
+                        <f:selectItem itemLabel="2016" itemValue="4" />
+                      </p:selectOneMenu>
+                    
+                    <h:outputText value="Selecione o curso" />                  
+                    <p:selectOneMenu id="curso-dash" value="#{selectOneMenuView.console}" style="width:45%">
+                       <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="Engenharia Software" itemValue="id_banco_dados" />
+                        <f:selectItem itemLabel="Sistema de Informação" itemValue="id_banco_dados2" />
+                        <f:selectItem itemLabel="Engenharia Elétrica" itemValue="id_banco_dados3" />
+                        <f:selectItem itemLabel="Engenharia Mecatrônica" itemValue="id_banco_dados4" />
+                        <f:selectItem itemLabel="Psicologia" itemValue="PS4" />
+                        <f:selectItem itemLabel="Marketing" itemValue="Wii U" />
+                        <f:facet name="footer">
+                           <p:separator />
+                    <h:outputText value="3 consoles" style="font-weight:bold;"/>
+                        </f:facet>
+                    </p:selectOneMenu>
+                    
+<!--                    <h:form>
+                        <p:growl id="msg" showDetail="true" escape="false"/>
+                        <p:pickList id="q" var="tes"/>
+                    </h:form>-->
+                 
+                   <!--Final do meu painel -->
+                </h:panelGrid>
+                  
+                <!--Inicio da tabela-->
+                    <p:dataTable var="car" value="">
+                        <p:column headerText="Id">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Ano da prova">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Curso">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="alunos ">
+                            <h:outputText value="" />
+                        </p:column>
+                    </p:dataTable>
+                
+                 <!--Fim da tabela-->
+                 <br/>
+                  <p:column>
+                    <p:commandButton icon="ui-icon-plus" value="Novo" onclick="PF('record').show();"/> 
+                         
+                </p:column>
+                
+                
+                <p:dialog header="Novo" widgetVar="record" modal="true" focus="name">
+                <p:panelGrid id="panelRecord" columns="2"> 
+                    <!--Código:
+                    
+                    <p:inputText id="cod" value="#{assuntoBean.assunto.idtbAssunto}" /-->
+              
+                    Ano da Prova:
+                    <p:inputText id="name" value="" />
+                    Nome do Curso:
+                    <p:inputText id="descricaoAssunto" value="#{assuntoBean.assunto.descricaoAssunto}" />
+                    Nº da Questão:
+                    <p:inputText id="Assunto" value="#{assuntoBean.assunto.assunto}" />
+                </p:panelGrid>  
+                <br/>
+                <p:commandButton value="Salvar" actionListener="#{assuntoBean.record}" onclick="record.hide()" alt="Record"/> 
+            </p:dialog>
+
+                <p:dialog header="Deletar" widgetVar="remove" modal="false"> 
+                    Você tem certeza?
+                    <p:commandButton value="Deletar" actionListener="#{assuntoBean.exclude}" onclick="remove.hide()" alt="Delete" /> 
+                </p:dialog>
+                
+                
+                
+            </p:panel>
+        </p:tab>
+        
+ 
+ 
+    </p:wizard>
+ 
+</h:form>
+    </ui:define>
+</ui:composition>

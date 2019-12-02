@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        
+        <h2 class="page-header">Logar no Sistema ENADE</h2>
+            
+            <h:form>    
+                <h3>Usuário:</h3>
+                <p:inputText />
+               
+                 <h3>Senha:</h3>
+            <span class="ui-float-label">
+                <p:password id="float-input" value="#{basicView.text}" />
+       
+                <h3> <p:commandButton value = "Enviar" /> </h3>  
+                <!--   <p:outputLabel for="@previous" value="Username" />      -->
+            </span>
+ 
+            </h:form>
+        
+    </ui:define>
+</ui:composition>
+

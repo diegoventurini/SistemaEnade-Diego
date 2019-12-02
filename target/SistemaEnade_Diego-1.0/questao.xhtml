@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+    <h2 class="page-header">Gerenciar Questões</h2>
+    
+        
+       
+<h:form id="formPrincipal">
+         
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+       
+        <p:tab id="prova" title="Questões">
+            <p:panel header="Detalhes da questão">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    
+                    <h:outputText value="Questao" />                    
+                    <p:inputText/>
+                    
+                    <h:outputText value="Selecione o curso" />                  
+                     <p:selectOneMenu id="curso-dash" value="#{selectOneMenuView.console}" style="width:45%">
+                        <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="Engenharia Software" itemValue="id_banco_dados" />
+                        <f:selectItem itemLabel="Sistema de Informação" itemValue="id_banco_dados2" />
+                        <f:selectItem itemLabel="Engenharia Elétrica" itemValue="id_banco_dados3" />
+                        <f:selectItem itemLabel="Engenharia Mecatrônica" itemValue="id_banco_dados4" />
+                        <f:selectItem itemLabel="Psicologia" itemValue="PS4" />
+                        <f:selectItem itemLabel="Marketing" itemValue="Wii U" />
+                        <f:facet name="footer">
+                           <p:separator />
+                           <h:outputText value="3 consoles" style="font-weight:bold;"/>
+                        </f:facet>
+                    </p:selectOneMenu>
+                    <h:outputText value="Descrição da questão" />                    
+                    <p:inputTextarea style="width: 300%"/>
+                    
+                 
+                   <!--Final Painel -->
+                </h:panelGrid>
+                  
+                <!--Inicio Tabela-->
+                    <p:dataTable var="car" value="">
+                        <p:column headerText="Id">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Questão">
+                            <h:outputText value="" />
+                        </p:column>
+
+                        <p:column headerText="Descrição">
+                            <h:outputText value="" />
+                        </p:column>
+
+                    </p:dataTable>
+                
+                 <!--Fim Tabela-->
+                 <br/>
+                  <p:column>
+                               
+                      <p:commandButton value="Salvar" actionListener="#{questaoBean.record}" onclick="record.hide()" alt="Record"/> 
+                         
+                </p:column>
+                
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+</h:form>
+    </ui:define>
+</ui:composition>

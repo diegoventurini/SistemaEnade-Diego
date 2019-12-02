@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+    <h2 class="page-header">Gerenciar Usuários</h2>
+    
+        
+<style type="text/css">
+                .label {
+                    width:20%;
+                    padding:4px;
+                }
+
+                .value {
+                    width:80%;
+                    padding:4px;
+                }
+
+                .grid {
+                    width:100%;
+                }
+
+                .error {
+                    color: red;
+                }
+
+                .outputLabel {
+                    font-weight: bold;
+                }
+
+                .grid {
+                    width:33%;
+                    padding:4px;
+                }
+</style>
+ 
+       
+<h:form id="formPrincipal">
+         
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+ 
+    <p:wizard flowListener="#{userWizard.onFlowProcess}">
+       
+        <p:tab id="usuario" title="Usuários">
+            <p:panel header="Detalhes do usuário">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    
+                    <h:outputText value="Selecione o tipo de usuário" />                  
+                     <p:selectOneMenu id="usuarioselect" value="#{selectOneMenuView.console}" style="width:45%">
+                        <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="Professor" itemValue="id_banco_dados" />
+                        <f:selectItem itemLabel="Aluno" itemValue="id_banco_dados2" />
+                        
+                        <f:facet name="footer">
+                           <p:separator />
+                           <h:outputText value="3 consoles" style="font-weight:bold;"/>
+                        </f:facet>
+                    </p:selectOneMenu>
+                    
+                 
+                   <!--Final do meu painel -->
+                </h:panelGrid>
+                  
+                
+                 <br/>
+                <p:column>
+                    
+                    <p:commandButton value="Salvar" actionListener="#{usuarioBean.record}" 
+                                     onclick="record.hide()" alt="Record"/>  
+
+                    
+               <!--      <p:commandButton value="Salvar" action="/faces/login.xhtml" 
+                                     actionListener="#{ouvidoriaBean.info}" 
+                                                                 icon="imagemVisualizar16" />     -->
+                      
+                         
+                </p:column>
+                
+
+<!--                <p:dialog header="Novo" widgetVar="record" modal="true" focus="name">
+                <p:panelGrid id="panelRecord" columns="2"> 
+                    Código:
+                    
+                    <p:inputText id="cod" value="#{assuntoBean.assunto.idtbAssunto}" /
+              
+                    Ano da Prova:
+                    <p:inputText id="name" value="" />
+                    Curso:
+                    <p:inputText id="descricaoAssunto" value="#{assuntoBean.assunto.descricaoAssunto}" />
+                    Quest:
+                    <p:inputText id="Assunto" value="#{assuntoBean.assunto.assunto}" />
+                </p:panelGrid>  
+                <br/>
+                <p:commandButton value="Salvar" actionListener="#{assuntoBean.record}" onclick="record.hide()" alt="Record"/> 
+            </p:dialog>-->
+
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+</h:form>
+    </ui:define>
+</ui:composition>

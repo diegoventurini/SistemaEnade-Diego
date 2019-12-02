@@ -1,1 +1,2 @@
-# SistemaEnade-Diego
+# LPWSD-Maven
+Exemplo de Projeto com Maven
